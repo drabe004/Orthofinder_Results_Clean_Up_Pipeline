@@ -1,4 +1,4 @@
-# Orthofinder Cleanup and Single-Copy Ortholog Identification Pipeline
+# Orthofinder Cleanup and Prepare Orthogroups for High Confidence orthology Inference
 
 Did you just run Orthofinder and end up with 60,000 orthogroups of wildly variable quality?
 This pipeline provides a reproducible, high-throughput solution that automatically cleans, filters, and annotates Orthofinder output—transforming raw orthogroup data into a rigorously curated, biologically interpretable set of multi-copy orthologs ready for downstream use in Orthocaller, Orthosnap, or GeneRax for orthology inference and evolutionary hypothesis testing.
