@@ -1,6 +1,41 @@
 # Orthofinder Cleanup and Single-Copy Ortholog Identification Pipeline
 
-A custom pipeline to clean, filter, and annotate Orthofinder results in order to identify high-quality single-copy orthologs across multiple species.
+Did you just run Orthofinder and end up with 60,000 orthogroups of wildly variable quality?
+This pipeline provides a reproducible, high-throughput solution that automatically cleans, filters, and annotates Orthofinder output—transforming raw orthogroup data into a rigorously curated, biologically interpretable set of multi-copy orthologs ready for downstream use in Orthocaller, Orthosnap, or GeneRax for orthology inference and evolutionary hypothesis testing.
+# Orthofinder Cleanup and Single-Copy Ortholog Identification Pipeline
+
+A custom pipeline to clean, filter, and annotate Orthofinder results in order to identify high-quality orthogroups suitable for downstream evolutionary analyses.  
+
+### 🧬 For Biologists
+
+This pipeline addresses a major challenge in comparative genomics: **Orthofinder** often identifies orthogroups containing paralogs, misannotated sequences, or inconsistent alignments, which can obscure accurate phylogenetic or evolutionary inference.  
+
+To resolve this, the workflow systematically **cleans, annotates, and filters** Orthofinder output to generate a curated set of **high-quality orthogroups** suitable for tree-based evolutionary analyses.  
+
+Each stage targets a specific source of error or redundancy in orthology inference:  
+1. **Species Presence Filtering** – removes orthogroups with insufficient representation across focal (e.g., cavefish) and background taxa.  
+2. **Alignment Cleanup** – trims poorly aligned or gap-rich sequences to improve alignment quality.  
+3. **Annotation Integration** – appends gene symbols and gene IDs from BLAST and Ensembl, linking orthogroups to validated functional annotations.  
+4. **Redundancy Reduction** – uses BLAST-derived annotations to identify and retain the majority **gene symbol per orthogroup**, removing mixed or ambiguous clusters.  
+5. **Validation, Re-alignment & Tree Inference** – realigns curated orthogroups, infers gene trees with **IQ-TREE**, and formats standardized inputs for **GeneRax**, **Orthosnap**, and the custom **Orthocaller** pipeline.  
+
+The result is a reproducible, high-throughput workflow that transforms raw Orthofinder output into a rigorously filtered, biologically interpretable dataset of **multi-copy orthologs** ready for input into **Orthocaller**, **Orthosnap**, or **GeneRax** for downstream orthology inference and evolutionary hypothesis testing.  
+
+---
+
+<details>
+<summary>💡 <b>For Non-Biologists (for Data Scientists)</b></summary>
+
+This project automates a large-scale **data-cleaning, transformation, and validation pipeline** for genomic data.  
+Raw sequence files from many species are treated like heterogeneous datasets: the scripts standardize naming conventions, remove corrupted or incomplete records, enforce schema consistency, and merge related data sources.  
+
+Once standardized, the pipeline maps each “record” (gene) within a hierarchical framework (the species tree) and applies statistical models to identify meaningful evolutionary signals — conceptually similar to running **anomaly-detection or feature-importance analyses** at scale.  
+
+In short, it is a **reproducible ETL and model-validation workflow** that converts raw, unstructured biological inputs into high-confidence, analysis-ready datasets — scaling from dozens to **tens of thousands of genes** with full automation, transparency, and auditability.  
+
+</details>
+
+
 
 ---
 
